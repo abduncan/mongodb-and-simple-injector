@@ -1,4 +1,8 @@
-﻿using System;
+﻿using Company.Domain.Models;
+using Company.Domain.Repository.UserRepository;
+using MongoDB.Bson;
+using MongoDB.Driver;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Net;
@@ -9,10 +13,17 @@ namespace Company.API.Controllers
 {
     public class ValuesController : ApiController
     {
-        // GET api/values
-        public IEnumerable<string> Get()
+        private readonly IUserRepository _userRepository;
+
+        public ValuesController(IUserRepository userRepository)
         {
-            return new string[] { "value1", "value2" };
+            _userRepository = userRepository;
+        }
+
+        // GET api/values
+        public User Get()
+        {
+            return _userRepository.FindUserByEmail("my@email.com");
         }
 
         // GET api/values/5

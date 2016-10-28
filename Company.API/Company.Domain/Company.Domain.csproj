@@ -30,12 +30,16 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.dll</HintPath>
+    <Reference Include="MongoDB.Bson, Version=2.3.0.157, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Bson.2.3.0\lib\net45\MongoDB.Bson.dll</HintPath>
       <Private>True</Private>
     </Reference>
-    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
-      <HintPath>..\packages\EntityFramework.6.1.3\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    <Reference Include="MongoDB.Driver, Version=2.3.0.157, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.2.3.0\lib\net45\MongoDB.Driver.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="MongoDB.Driver.Core, Version=2.3.0.157, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\MongoDB.Driver.Core.2.3.0\lib\net45\MongoDB.Driver.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="System" />
@@ -51,62 +55,18 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ClassMapper.cs" />
+    <Compile Include="Models\User.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Repository\GenericRepository\City.cs">
-      <DependentUpon>RepositoryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Repository\GenericRepository\CompanyEntities.cs" />
-    <Compile Include="Repository\GenericRepository\IRepositoryModel.cs" />
-    <Compile Include="Repository\GenericRepository\RepositoryModel.Context.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RepositoryModel.Context.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Repository\GenericRepository\RepositoryModel.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RepositoryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Repository\GenericRepository\RepositoryModel.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>RepositoryModel.edmx</DependentUpon>
-    </Compile>
-    <Compile Include="Repository\GenericRepository\State.cs">
-      <DependentUpon>RepositoryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Repository\GenericRepository\User.cs">
-      <DependentUpon>RepositoryModel.tt</DependentUpon>
-    </Compile>
-    <Compile Include="Repository\GenericRepository\Visit.cs">
-      <DependentUpon>RepositoryModel.tt</DependentUpon>
-    </Compile>
+    <Compile Include="Repository\UserRepository\IUserRepository.cs" />
+    <Compile Include="Repository\UserRepository\UserRepository.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.Config" />
     <None Include="packages.config" />
-    <EntityDeploy Include="Repository\GenericRepository\RepositoryModel.edmx">
-      <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>RepositoryModel.Designer.cs</LastGenOutput>
-    </EntityDeploy>
-    <None Include="Repository\GenericRepository\RepositoryModel.edmx.diagram">
-      <DependentUpon>RepositoryModel.edmx</DependentUpon>
-    </None>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
-  </ItemGroup>
-  <ItemGroup>
-    <Content Include="Repository\GenericRepository\RepositoryModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>RepositoryModel.edmx</DependentUpon>
-      <LastGenOutput>RepositoryModel.Context.cs</LastGenOutput>
-    </Content>
-    <Content Include="Repository\GenericRepository\RepositoryModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>RepositoryModel.edmx</DependentUpon>
-      <LastGenOutput>RepositoryModel.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
